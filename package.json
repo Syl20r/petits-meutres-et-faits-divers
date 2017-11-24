@@ -1,0 +1,26 @@
+{
+  "name": "petits-meutres-et-faits-divers",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.16.2",
+    "socket.io": "^2.0.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/Syl20/petits-meutres-et-faits-divers.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/Syl20/petits-meutres-et-faits-divers/issues"
+  },
+  "homepage": "https://gitlab.com/Syl20/petits-meutres-et-faits-divers#README"
+}
