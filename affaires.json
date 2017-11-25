@@ -1,0 +1,41 @@
+[{
+  "date": "mercredi 21 mars",
+  "histoire": "Entraîné par sa nouvelle tondeuse autotractée, Cyrille Daujean est Précipité du haut de la falaise.",
+  "perso": [{
+      "nom": "Baby sitter",
+      "desc": "Rencontre souvent des difficultés avec la fille de Cyrille D."
+    },
+    {
+      "nom": "Pompiste",
+      "desc": "Confond régulièrement essence, gas-oil et bière."
+    },
+    {
+      "nom": "Vendeur du \"Paradis de la tondeuse\"",
+      "desc": "Sujet de bien des plaintes pour vente avec vices cachés."
+    },
+    {
+      "nom": "Voisin \"rasta\"",
+      "desc": "Milite pour le droit au respect de la pousse libre des herbes folles."
+    },
+    {
+      "nom": "Voisin député écolo",
+      "desc": "Se sent humilié avec la tondeuse à pédale que sa femme lui a offerte."
+    }
+  ],
+  "innocent": [
+    "classe",
+    "chlorophylle",
+    "prévention",
+    "narines",
+    "sophistiqué",
+    "permission"
+  ],
+  "coupable": [
+    "vacarme",
+    "intraitable",
+    "riposte",
+    "guidon",
+    "accélérateur",
+    "télécommande"
+  ]
+}]

@@ -5,10 +5,15 @@
     <title>Home</title>
   </head>
   <body>
-    <p id="connexion">Non connecté</p>
-    <p>Vous êtes :</p>
+    <p id="connexion"></p>
+    <p>Vous êtes : </p>
     <p id="role"></p>
 
+    <button onclick="mj()" type="button" id="boutonMj">Devenir Maître du jeu</button>
+    <div id="maitre"></div>
+
+    <p>Joueurs connectés : </p>
+    <p id='nbrJoueurs'>0</p>
     <!-- Le fichier socket.io.js est généré par server.js -->
     <script type="text/javascript" src="/socket.io/socket.io.js"></script>
     <script type="text/javascript" src="js/client.js"></script>
