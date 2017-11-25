@@ -1,21 +1,44 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="utf-8">
-    <title>Home</title>
-  </head>
-  <body>
-    <p id="connexion"></p>
-    <p>Vous êtes : </p>
-    <p id="role"></p>
 
-    <button onclick="mj()" type="button" id="boutonMj">Devenir Maître du jeu</button>
-    <div id="maitre"></div>
+<head>
+  <meta charset="utf-8">
+  <title>Home</title>
+</head>
 
-    <p>Joueurs connectés : </p>
-    <p id='nbrJoueurs'>0</p>
-    <!-- Le fichier socket.io.js est généré par server.js -->
-    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
-    <script type="text/javascript" src="js/client.js"></script>
-  </body>
+<body>
+  <div class=date>
+    <h3>Affaire du </h4>
+    <h4 id=date></h4>
+  </div>
+  <p id="connexion"></p>
+  <p>Rôle : </p>
+  <p id="role"></p>
+  <div id="perso" style="display: none;">
+    <p>Vous êtes </p>
+    <p id="name"></p>
+  </div>
+  <div class="mots">
+    <p>Mots :</p>
+    <ul id="mots1">
+    </ul>
+    <ul id="mots2">
+    </ul>
+  </div>
+  <div class="info">
+    <p>Info sur les autres personnages :</p>
+    <ul id="info_perso">
+    </ul>
+  </div>
+
+  <button onclick="mj()" type="button" id="boutonMj">Devenir Maître du jeu</button>
+  <div id="maitre"></div>
+
+  <p>Joueurs connectés : </p>
+  <p id='nbrJoueurs'>0</p>
+  <!-- Le fichier socket.io.js est généré par server.js -->
+  <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+  <script type="text/javascript" src="js/client.js"></script>
+</body>
+
 </html>

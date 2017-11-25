@@ -5,6 +5,9 @@ let express = require('express');
 let socketio = require('socket.io');
 let game = require('./game');
 
+// Affaires (json)
+var affaires = require('./affaires.json')
+
 // Application
 let app = express();
 let server = http.createServer(app);
@@ -45,11 +48,32 @@ io.on('connection', function (sock) {
   });
   // Démarre la partie
   sock.on('jouer', function () {
-    game.fillRoles(io.engine.clientsCount);
+    var affaire = affaires[Math.floor(Math.random()*affaires.length)];
+    game.fillRoles(Math.min(io.engine.clientsCount, 6)); // Pour l'instant 5 joueurs max
     // Donne un rôle à chaque client
+    var n = 0; //Donne les noms
+    var j = 0; // 6 joueurs max
     for (var i in SOCKET_LIST) {
-      var s = SOCKET_LIST[i];
-      s.emit('role', game.donneRole());
+      if (j < 6) {
+        var s = SOCKET_LIST[i];
+        var role = game.donneRole();
+        s.emit('role', role);
+        if (role != "Inspecteur") {
+          var name = affaire.perso[n].name; // Nom du personnage
+          s.emit('name', name);
+          n++;
+          if (role == "Coupable") {
+            s.emit("mots", affaire.coupable);
+          } else {
+            s.emit("mots", affaire.innocent);
+          }
+        }
+        s.emit("infoPerso", affaire.perso);
+        s.emit("date", affaire.date);
+        console.log(name + ' est ' + role);
+      }
+      j++;
+
     }
   });
 });
