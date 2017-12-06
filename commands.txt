@@ -1,0 +1,10 @@
+git config --global user.name "Jeremie Roux"
+git config --global user.email "jeremie.roux@etu.umontpellier.fr"
+git clone git@gitlab.info-ufr.univ-montp2.fr:e20170001722/petits-meutres-et-faits-divers.git
+cd petits-meutres-et-faits-divers/
+cd client/
+nano index.html
+git add . ou git add index.html
+git commit -m "commentaires"
+git push origin master
+
