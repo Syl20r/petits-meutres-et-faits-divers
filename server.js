@@ -18,8 +18,25 @@ var MJ = false; // Maitre du Jeu
 
 // Quand un client se connecte
 io.on('connection', function (sock) {
-  sock.id = Math.random(); // identité unique
-  SOCKET_LIST[sock.id] = sock;
+  io.emit('id'); // Demande l'id et le nickname
+  sock.on('id', function (tab) { // Reçoit id et nickname
+    sock.id = tab[0]; // identité unique
+    sock.nickname = tab[1];
+    SOCKET_LIST[sock.id] = sock;
+
+    // Ajoute le joueur dans la liste et sur sa page
+    var listeJoueurs = [];
+    for (var i in SOCKET_LIST) {
+      var s = SOCKET_LIST[i];
+      // liste joueurs
+      listeJoueurs.push([s.id, s.nickname]);
+      if (s.id == sock.id) {
+        s.emit('pseudo', s.nickname);
+      }
+    }
+    io.emit('listePseudo', listeJoueurs);
+  });
+
    // On informe les clients du nbr de clients connectés
   io.emit('nbrJoueurs', io.engine.clientsCount);
 
@@ -31,6 +48,7 @@ io.on('connection', function (sock) {
       io.emit('mjDispo', true);
     }
   })
+
   // Demande à devenir MJ
   sock.on('mj', function () {
     var possible = true; // Teste si il y a déjà un MJ

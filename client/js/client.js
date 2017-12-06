@@ -1,5 +1,30 @@
 var sock = io();
 
+sock.on('pseudo', (nickname) => document.getElementById('pseudoClient').innerHTML = nickname);
+sock.on('listePseudo', function (liste) {
+  var ul = document.getElementById('pseudos');
+  var lis = ul.getElementsByTagName("li");
+  for (var i in liste) {
+    // Anti-doublons
+    var ok = true;
+    for (var j in lis) {
+      if (lis[j].id == liste[i][0]) {
+        ok = false;
+      }
+    }
+    if (ok) {
+      var icone = document.createElement('i');
+      var li = document.createElement('li');
+      li.id = liste[i][0];
+      li.appendChild(icone);
+      li.appendChild(document.createTextNode(liste[i][1]));
+      ul.appendChild(li);
+    }
+  }
+});
+sock.on('id', function () {
+  sock.emit('id', [getCookie('id'), getCookie('nickname')]);
+});
 sock.on('mjDispo', (bool) => document.getElementById('boutonMj').disabled = !bool);
 sock.on('msg', (txt) => alert(txt));
 sock.on('nbrJoueurs', (nbr) => document.getElementById('nbrJoueurs').innerHTML = nbr);
@@ -22,7 +47,7 @@ sock.on('mj', function(estMaitre) {
     div.appendChild(btn);
     document.body.appendChild(div);
   }
-})
+});
 
 sock.on('role', (role) => document.getElementById('role').innerHTML = role);
 sock.on('name', function functionName(name) {
@@ -48,7 +73,7 @@ sock.on('infoPerso', function (perso) {
 });
 sock.on("date", function (date) {
   document.getElementById('date').innerHTML = date;
-})
+});
 sock.on('mots', function (mots) {
   for (var i in mots) {
     var mot = document.createElement('li');
@@ -69,4 +94,20 @@ function mj() {
 
 function jouer() {
   sock.emit('jouer');
+}
+
+function getCookie(c_name)
+{
+if (document.cookie.length>0)
+  {
+  c_start=document.cookie.indexOf(c_name + "=");
+  if (c_start!=-1)
+    {
+    c_start=c_start + c_name.length+1;
+    c_end=document.cookie.indexOf(";",c_start);
+    if (c_end==-1) c_end=document.cookie.length;
+    return unescape(document.cookie.substring(c_start,c_end));
+    }
+  }
+return "";
 }

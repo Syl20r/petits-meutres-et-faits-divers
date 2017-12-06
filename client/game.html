@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Petits Meurtres et Faits Divers </title>
+  <link rel="icon" href="icon.ico" />
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <header>
+    <div id="logo"><img src="logo.jpg" id="resize"></div>
+    <p id='pseudoClient'>pseudo</p>
+  </header>
+  <div id="container">
+  <aside>
+    <h1 id="aside">Joueurs</h1>
+    <ul id="pseudos">
+      <li id="mj"><i class="fa fa-legal" style="font-size: 90%"></i>  JeanSebastienBachDu34</li>
+      <li id="inspector"><i class="fa fa-user-secret"></i>  Antoinebdnwf,gblrgjlrgjrlgvwjbglregb</li>
+      <li id="suspect"><i class="fa fa-user"></i>  Yannickqsdgfegzrjqrhghrejgrhgikqhg</li>
+    </ul>
+  </aside>
+
+  <div id="content">
+    <div class=date>
+      <h3>Affaire du </h3>
+      <h4 id=date></h4>
+    </div>
+    <p id="connexion"></p>
+    <p>Rôle : </p>
+    <p id="role"></p>
+    <div id="perso" style="display: none;">
+      <p>Vous êtes </p>
+      <p id="name"></p>
+    </div>
+    <div class="mots">
+      <p>Mots :</p>
+      <ul id="mots1">
+      </ul>
+      <ul id="mots2">
+      </ul>
+    </div>
+    <div class="info">
+      <p>Info sur les autres personnages :</p>
+      <ul id="info_perso">
+      </ul>
+    </div>
+  </div>
+
+    <button onclick="mj()" type="button" id="boutonMj">Devenir Maître du jeu</button>
+    <div id="maitre"></div>
+
+    <p>Joueurs connectés : </p>
+    <p id='nbrJoueurs'>0</p>
+    <!-- Le fichier socket.io.js est généré par server.js -->
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="js/client.js"></script>
+  </div>
+</body>
+</html>
