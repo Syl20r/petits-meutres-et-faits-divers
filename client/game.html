@@ -6,12 +6,13 @@
   <link rel="icon" href="icon.ico" />
   <link rel="stylesheet" type="text/css" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="js/load.js"></script>
 </head>
 
-<body>
+<body onresize='hauteur()'>
   <header>
-    <div id="boxPseudo"><p id='pseudoClient'>pseudo</p>
-      <p><span id='nbrJoueurs'></span> joueurs connectés</p>
+    <div id="boxPseudo"><p id='pseudoClient'>JeanSebastienBach</p>
+      <p><span id='nbrJoueurs'></span> Joueur(s) connecté(s)</p>
     </div>
     <div id="logo"><img src="logo.jpg" id="resize"></div>
     
@@ -20,18 +21,11 @@
   <div id="aside" onload='hauteur()'>
     <h1 id="h1aside">Joueurs</h1>
     <ul id="pseudos">
-      <li id="mj"><i class="fa fa-legal" style="font-size: 90%"></i>  JeanSebastienBachDu34</li>
+      <li id="mj"><i class="fa fa-legal" style="font-size: 90%"></i>  JeanSebastienBach</li>
       <li id="inspector"><i class="fa fa-user-secret"></i>  Antoine</li>
       <li id="suspect"><i class="fa fa-user"></i>  Yannick</li>
       <li id="suspect"><i class="fa fa-user"></i>  Yannick</li>
-      <li id="suspect"><i class="fa fa-user"></i>  Yannick</li>
-      <li id="suspect"><i class="fa fa-user"></i>  Yannick</li>
-      <li id="suspect"><i class="fa fa-user"></i>  Yannick</li>
-      <li id="suspect"><i class="fa fa-user"></i>  Yannick</li>
-      <li id="suspect"><i class="fa fa-user"></i>  Yannick</li>
-      <li id="suspect"><i class="fa fa-user"></i>  Yannick</li>
-      <li id="suspect"><i class="fa fa-user"></i>  Yannick</li>
-      <li id="suspect"><i class="fa fa-user"></i>  Yannick</li>
+      
     </ul>
   </div>
 
@@ -55,7 +49,11 @@
       </ul>
     </div>
     <div class="info">
-      <p>Info sur les autres personnages :</p>
+      <p>Info sur les autres personnages : Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel varius arcu. Aliquam finibus rhoncus nisi ut sagittis. Cras pulvinar urna vel rutrum aliquet. Quisque sollicitudin nulla velit, sed sodales mauris sodales nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet dolor mauris. Pellentesque vitae euismod elit.
+
+Donec convallis ultricies justo, sit amet feugiat eros bibendum fermentum. Nam fringilla imperdiet odio, sit amet placerat ligula vulputate nec. Praesent facilisis porttitor justo, sit amet consequat libero consectetur sit amet. Maecenas vitae leo porttitor, cursus arcu at, molestie sem. Vestibulum mi dui, vehicula at arcu sed, hendrerit ornare est. Sed pharetra velit velit, eu dignissim ex egestas in. Phasellus sed posuere ex, quis varius mauris. Sed placerat luctus libero, nec aliquam magna commodo in. Etiam pellentesque rutrum consectetur. Quisque quis urna vel neque tempor placerat. Maecenas eu ex erat. Cras vel augue non est volutpat mattis. Suspendisse varius, ex ac tempus imperdiet, ante justo pulvinar sapien, vel pellentesque orci mauris eu orci. Pellentesque egestas, diam et posuere viverra, odio massa ornare enim, quis posuere ipsum magna in nibh. Nullam mollis hendrerit nisi in elementum. Sed sed augue lacinia, luctus tortor sit amet, elementum orci.
+
+Ut quis faucibus lectus. Sed lobortis dignissim est, a pellentesque ipsum efficitur vel. Aenean sit amet orci mattis, egestas turpis vitae, convallis nisi. Morbi quis feugiat ligula, vel dignissim justo. Nullam mattis at urna at scelerisque. Vestibulum quis nisl sagittis, consequat lacus a, feugiat eros. Praesent non velit tellus. </p>
       <ul id="info_perso">
       </ul>
     </div>
@@ -68,17 +66,6 @@
     <!-- Le fichier socket.io.js est généré par server.js -->
     <script type="text/javascript" src="/socket.io/socket.io.js"></script>
     <script type="text/javascript" src="js/client.js"></script>
-    <script type="text/javascript">    
-      var divHeight;
-      var obj = document.getElementById('container');
-
-      if(obj.offsetHeight)          {divHeight=obj.offsetHeight;}
-      else if(obj.style.pixelHeight){divHeight=obj.style.pixelHeight;}
-
-      var obj2 = document.getElementById('aside');
-      var obj3 = document.getElementById('content');
-      obj2.style.height = divHeight+"px";
-      obj3.style.height = divHeight+"px";
-</script>
+    <script type="text/javascript">hauteur();</script>
 </body>
 </html>
