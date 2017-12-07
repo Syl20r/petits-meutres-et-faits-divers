@@ -1,0 +1,19 @@
+technique
+2/2 struct html et html/css séparés
+/2 qualité css
+/2 CV et quizz
+/2 json jquery
+/2 analyse rep
+3/3 (bonus) technique js
+
+contenu
+2/2 quantité travail
+/2 struct commune entre pages
+/2 nav par menu
+1/1 (bonus) originalité / interet
+
+soutenance
+/2 parole fluide et correctement répartie
+/2 explications claires
+
+8/20
