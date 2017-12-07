@@ -10,18 +10,30 @@
 
 <body>
   <header>
+    <div id="boxPseudo"><p id='pseudoClient'>pseudo</p>
+      <p><span id='nbrJoueurs'></span> 0 joueurs connectés</p>
+    </div>
     <div id="logo"><img src="logo.jpg" id="resize"></div>
-    <p id='pseudoClient'>pseudo</p>
+    
   </header>
   <div id="container">
-  <aside>
-    <h1 id="aside">Joueurs</h1>
+  <div id="aside" onload='hauteur()'>
+    <h1 id="h1aside">Joueurs</h1>
     <ul id="pseudos">
       <li id="mj"><i class="fa fa-legal" style="font-size: 90%"></i>  JeanSebastienBachDu34</li>
-      <li id="inspector"><i class="fa fa-user-secret"></i>  Antoinebdnwf,gblrgjlrgjrlgvwjbglregb</li>
-      <li id="suspect"><i class="fa fa-user"></i>  Yannickqsdgfegzrjqrhghrejgrhgikqhg</li>
+      <li id="inspector"><i class="fa fa-user-secret"></i>  Antoine</li>
+      <li id="suspect"><i class="fa fa-user"></i>  Yannick</li>
+      <li id="suspect"><i class="fa fa-user"></i>  Yannick</li>
+      <li id="suspect"><i class="fa fa-user"></i>  Yannick</li>
+      <li id="suspect"><i class="fa fa-user"></i>  Yannick</li>
+      <li id="suspect"><i class="fa fa-user"></i>  Yannick</li>
+      <li id="suspect"><i class="fa fa-user"></i>  Yannick</li>
+      <li id="suspect"><i class="fa fa-user"></i>  Yannick</li>
+      <li id="suspect"><i class="fa fa-user"></i>  Yannick</li>
+      <li id="suspect"><i class="fa fa-user"></i>  Yannick</li>
+      <li id="suspect"><i class="fa fa-user"></i>  Yannick</li>
     </ul>
-  </aside>
+  </div>
 
   <div id="content">
     <div class=date>
@@ -48,15 +60,25 @@
       </ul>
     </div>
   </div>
-
+</div>
     <button onclick="mj()" type="button" id="boutonMj">Devenir Maître du jeu</button>
     <div id="maitre"></div>
 
-    <p>Joueurs connectés : </p>
-    <p id='nbrJoueurs'>0</p>
+    
     <!-- Le fichier socket.io.js est généré par server.js -->
     <script type="text/javascript" src="/socket.io/socket.io.js"></script>
     <script type="text/javascript" src="js/client.js"></script>
-  </div>
+    <script type="text/javascript">    
+      var divHeight;
+      var obj = document.getElementById('container');
+
+      if(obj.offsetHeight)          {divHeight=obj.offsetHeight;}
+      else if(obj.style.pixelHeight){divHeight=obj.style.pixelHeight;}
+
+      var obj2 = document.getElementById('aside');
+      var obj3 = document.getElementById('content');
+      obj2.style.height = divHeight+"px";
+      obj3.style.height = divHeight+"px";
+</script>
 </body>
 </html>
