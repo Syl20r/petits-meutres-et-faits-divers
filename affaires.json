@@ -38,4 +38,45 @@
     "accélérateur",
     "télécommande"
   ]
+},
+{
+  "date": "mercredi 12 décembre",
+  "histoire": "Qui a tué le colonel Moutarde dans la bibliothèque avec le chandelier ?",
+  "perso": [{
+      "name": "Madame Leblanc",
+      "desc": "La victime disait de Madame Leblanc : \"ça fait 30 ans qu'elle a 20 ans, ça commence à se voir...\""
+    },
+    {
+      "name": "Monsieur Lenoir",
+      "desc": "La victime disait de Monsieur Lenoir : \"un jour il a eu une idée utile, relever la lunette des WC avant de s'en servir...\""
+    },
+    {
+      "name": "Docteur Olive",
+      "desc": "La victime disait du Docteur Olive : \"dans sa profession, il finira comme une grosse huile, s'il renonce à la bouteille...\""
+    },
+    {
+      "name": "Madame Pervenche",
+      "desc": "La victime disait de Madame Pervenche : \"mais faits-la taire !\""
+    },
+    {
+      "name": "Mademoiselle Rose",
+      "desc": "Elle avait 2 neurones, le plus gentil des deux s'est suicidé"
+    }
+  ],
+  "innocent": [
+    "personnage",
+    "précis",
+    "actions",
+    "déplacements",
+    "exagération",
+    "compulsif"
+  ],
+  "coupable": [
+    "rôle",
+    "tueur",
+    "contexte",
+    "isolé",
+    "sous-estimé",
+    "hémorragie"
+  ]
 }]

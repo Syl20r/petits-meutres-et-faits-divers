@@ -57,32 +57,34 @@ io.on('connection', function(sock) {
   });
   // Démarre la partie
   sock.on('jouer', function() {
-    var affaire = affaires[Math.floor(Math.random() * affaires.length)];
+    var rAff = Math.floor(Math.random() * (affaires.length)); // Choisit une affaire au hasard
+    var affaire = affaires[rAff];
     game.fillRoles(Math.min(io.engine.clientsCount, 6)); // Pour l'instant 5 joueurs max
     // Donne un rôle à chaque client
-    var n = 0; //Donne les noms
+    var n = 0; // Donne les noms
     var j = 0; // 6 joueurs max
     for (var i in SOCKET_LIST) {
       if (j < 6) {
         var s = SOCKET_LIST[i];
-        var role = game.donneRole();
-        s.emit('role', role);
-        if (role != "Inspecteur") {
-          var name = affaire.perso[n].name; // Nom du personnage
-          s.emit('name', name);
+        var data = {};
+        data.role = game.donneRole();
+        if (data.role == "Inspecteur") { // Inspecteur
+          affaire.inspecteur = s.id;
+        } else {
+          data.name = affaire.perso[n].name; // Nom du personnage
           n++;
-          if (role == "Coupable") {
-            s.emit("mots", affaire.coupable);
+          if (data.role == "Coupable") {
+            data.mots = affaire.coupable;
           } else {
-            s.emit("mots", affaire.innocent);
+            data.mots = affaire.innocent;
           }
         }
-        s.emit("infoPerso", affaire.perso);
-        s.emit("date", affaire.date);
-        console.log(name + ' est ' + role);
+        //console.log(data);
+        s.emit("role", data);
       }
       j++;
     }
+    io.emit("affaire", affaire);
   });
 });
 

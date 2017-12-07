@@ -11,6 +11,7 @@ module.exports = {
    * @return 0
    */
   fillRoles: function(nbrJoueurs) {
+    rolesLibres = ["Inspecteur", "Coupable"];
     if (nbrJoueurs > 2) {
       for (i = 2; i < nbrJoueurs; i++) {
         rolesLibres.push("Innocent");

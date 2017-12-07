@@ -14,12 +14,10 @@ sock.on('listePseudo', function(liste) {
       }
     }
     if (ok) {
-      var icone = document.createElement('i');
       var li = document.createElement('li');
       li.id = liste[i][0];
-      icone.className = "fa fa-user";
-      li.appendChild(icone);
-      li.appendChild(document.createTextNode('  ' + liste[i][1]));
+      li.className = "suspect";
+      li.appendChild(document.createTextNode(liste[i][1]));
       ul.appendChild(li);
     }
   }
@@ -50,58 +48,68 @@ sock.on('mj', function(estMaitre) {
     document.body.appendChild(div);
   }
 });
-sock.on('role', function(role) {
-  document.getElementById('role').innerHTML = role;
-  var icone = document.getElementById(getCookie('id')).getElementsByTagName('i')[0];
+sock.on('role', function(data) {
+  document.getElementById('perso').style.display = "none";
+  document.getElementById('mots').style.display = "none";
+  var eRole = document.getElementById('role');
+  var eName = document.getElementById('name');
+  // Rôle
+  eRole.innerHTML = data.role;
 
-  if (role == "Inspecteur") {
-    icone.className = "fa fa-user-secret";
-  } else {
-    icone.className = "fa fa-user";
+  console.log(data.name);
+  if (data.role != 'Inspecteur') {
+    document.getElementById('perso').style.display = "inline";
+    document.getElementById('mots').style.display = "inline";
+    eName.innerHTML = data.name;
+    // Name
+    var mots1 = document.getElementById('mots1');
+    var mots2 = document.getElementById('mots2');
+    mots1.innerHTML = '';
+    mots2.innerHTML = '';
+
+    for (var i in data.mots) {
+      var mot = document.createElement('li');
+      mot.appendChild(document.createTextNode(data.mots[i]));
+      // Sépare les 6 mots en deux parties
+      if (i < 3) {var ul = mots1;}
+      else {var ul = mots2;}
+      ul.appendChild(mot);
+    }
   }
+
 });
-sock.on('name', function functionName(name) {
-  document.getElementById('perso').style.display = "inline";
-  document.getElementById('name').innerHTML = name;
-});
-sock.on('infoPerso', function(perso) {
+sock.on('affaire', function(aff) {
+  // Date
+  document.getElementById('date').innerHTML = aff.date;
+  // Icone inspecteur
+  var ul = document.getElementById('pseudos');
+  var lis = ul.getElementsByClassName('inspecteur');
+  for (var i in lis) {
+    lis[i].className = 'suspect';
+  }
+  var lis = ul.getElementsByClassName('suspect');
+  for (var i in lis) {
+    if (lis[i].id == aff.inspecteur) {
+      lis[i].className = 'inspecteur';
+    }
+  }
+  // Desc des perso
   var info_perso = document.getElementById('info_perso');
   info_perso.innerHTML = '';
 
-  for (var i in perso) { // https://prnt.sc/hf3jcl
+  for (var i in aff.perso) { // https://prnt.sc/hf3jcl
     var li = document.createElement('li');
     var ul = document.createElement('ul');
     var name = document.createElement('li');
     var desc = document.createElement('li');
 
-    name.appendChild(document.createTextNode(perso[i].name));
-    desc.appendChild(document.createTextNode(perso[i].desc));
+    name.appendChild(document.createTextNode(aff.perso[i].name));
+    desc.appendChild(document.createTextNode(aff.perso[i].desc));
 
     ul.appendChild(name);
     ul.appendChild(desc);
     li.appendChild(ul);
     info_perso.appendChild(li);
-  }
-});
-sock.on("date", function(date) {
-  document.getElementById('date').innerHTML = date;
-});
-sock.on('mots', function(mots) {
-  var mots1 = document.getElementById('mots1');
-  var mots2 = document.getElementById('mots2');
-  mots1.innerHTML = '';
-  mots2.innerHTML = '';
-
-  for (var i in mots) {
-    var mot = document.createElement('li');
-    mot.appendChild(document.createTextNode(mots[i]));
-
-    if (i < 3) {
-      var ul = mots1;
-    } else {
-      var ul = mots2;
-    }
-    ul.appendChild(mot);
   }
 });
 

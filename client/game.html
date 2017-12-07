@@ -23,9 +23,6 @@
     <div id="aside" onload='hauteur()'>
       <h1 id="h1aside">Joueurs</h1>
       <ul id="pseudos">
-        <li id="mj"><i class="fa fa-legal" style="font-size: 90%"></i> JeanSebastienBach</lig>
-          <li id="inspector"><i class="fa fa-user-secret"></i> Antoine</li>
-          <li id="suspect"><i class="fa fa-user"></i> Yannick</li>
       </ul>
     </div>
 
@@ -34,14 +31,15 @@
         <h3>Affaire du </h3>
         <h4 id=date></h4>
       </div>
-      <p id="connexion"></p>
-      <p>Rôle : </p>
-      <p id="role"></p>
+      <div class="role">
+        <p>Rôle : </p>
+        <p id="role"></p>
+      </div>
       <div id="perso" style="display: none;">
         <p>Vous êtes </p>
         <p id="name"></p>
       </div>
-      <div class="mots">
+      <div id="mots" style="display: none;">
         <p>Mots :</p>
         <ul id="mots1">
         </ul>
