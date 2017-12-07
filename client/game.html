@@ -15,17 +15,15 @@
       <p><span id='nbrJoueurs'></span> Joueur(s) connecté(s)</p>
     </div>
     <div id="logo"><img src="logo.jpg" id="resize"></div>
-    
+
   </header>
   <div id="container">
   <div id="aside" onload='hauteur()'>
     <h1 id="h1aside">Joueurs</h1>
     <ul id="pseudos">
-      <li id="mj"><i class="fa fa-legal" style="font-size: 90%"></i>  JeanSebastienBach</li>
+      <li id="mj"><i class="fa fa-legal" style="font-size: 90%"></i>  JeanSebastienBach</lig>
       <li id="inspector"><i class="fa fa-user-secret"></i>  Antoine</li>
       <li id="suspect"><i class="fa fa-user"></i>  Yannick</li>
-      <li id="suspect"><i class="fa fa-user"></i>  Yannick</li>
-      
     </ul>
   </div>
 
@@ -62,10 +60,30 @@ Ut quis faucibus lectus. Sed lobortis dignissim est, a pellentesque ipsum effici
     <button onclick="mj()" type="button" id="boutonMj">Devenir Maître du jeu</button>
     <div id="maitre"></div>
 
-    
+
     <!-- Le fichier socket.io.js est généré par server.js -->
     <script type="text/javascript" src="/socket.io/socket.io.js"></script>
     <script type="text/javascript" src="js/client.js"></script>
+<<<<<<< HEAD
     <script type="text/javascript">hauteur();</script>
+=======
+    <script type="text/javascript">
+      var divHeight;
+      var obj = document.getElementById('container');
+
+      if(obj.offsetHeight)          {divHeight=obj.offsetHeight;}
+      else if(obj.style.pixelHeight){divHeight=obj.style.pixelHeight;}
+
+      var obj2 = document.getElementById('aside');
+      var obj3 = document.getElementById('content');
+      obj2.style.height = divHeight+"px";
+      obj3.style.height = divHeight+"px";
+
+      // redirect si sans pseudo
+      if (getCookie('nickname') == "") {
+        location.href = 'index.html';
+      }
+</script>
+>>>>>>> 12b4e7d461b034d51d1d4f64ec5f8932975d5fd1
 </body>
 </html>

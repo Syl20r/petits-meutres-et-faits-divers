@@ -117,4 +117,8 @@ if (document.cookie.length>0)
     }
   }
 return "";
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 12b4e7d461b034d51d1d4f64ec5f8932975d5fd1

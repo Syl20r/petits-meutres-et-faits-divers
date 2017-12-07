@@ -1,1 +1,4 @@
--Quand aucun joueur n'a rentré son pseudo, afficher "aucun joueur connecté dans le ul"
+(a faire ?) joueurs connectés => nbr joueurs
+questionnaire json
+page cv
+limiter pseudo 17 caract
