@@ -1,4 +1,5 @@
-(a faire ?) joueurs connectés => nbr joueurs
-questionnaire json
-page cv
-limiter pseudo 17 caract
+? joueurs connectés => nbr joueurs
+(Sylv) questionnaire json
+(Yann) page cv
+(Sylv) limiter pseudo 17 caract
+? (Sylv) id cookie/role, etc de la partie => on peut reprendre la partie si on actualise

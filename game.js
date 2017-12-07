@@ -13,7 +13,7 @@ module.exports = {
   fillRoles: function(nbrJoueurs) {
     if (nbrJoueurs > 2) {
       for (i = 2; i < nbrJoueurs; i++) {
-      rolesLibres.push("Innocent");
+        rolesLibres.push("Innocent");
       }
     }
   },

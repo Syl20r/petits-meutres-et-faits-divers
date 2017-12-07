@@ -17,9 +17,9 @@ var SOCKET_LIST = {}; // Liste des clients
 var MJ = false; // Maitre du Jeu
 
 // Quand un client se connecte
-io.on('connection', function (sock) {
+io.on('connection', function(sock) {
   io.emit('id'); // Demande l'id et le nickname
-  sock.on('id', function (tab) { // Reçoit id et nickname
+  sock.on('id', function(tab) { // Reçoit id et nickname
     sock.id = tab[0]; // identité unique
     sock.nickname = tab[1];
     SOCKET_LIST[sock.id] = sock;
@@ -27,11 +27,11 @@ io.on('connection', function (sock) {
     sendPseudos(sock.id);
   });
 
-   // On informe les clients du nbr de clients connectés
+  // On informe les clients du nbr de clients connectés
   io.emit('nbrJoueurs', io.engine.clientsCount);
 
   // Si un client se déconnecte on le retire de SOCKET_LIST
-  sock.on('disconnect', function () {
+  sock.on('disconnect', function() {
     delete SOCKET_LIST[sock.id];
     io.emit('nbrJoueurs', io.engine.clientsCount);
     if (sock.mj == true) {
@@ -41,7 +41,7 @@ io.on('connection', function (sock) {
   })
 
   // Demande à devenir MJ
-  sock.on('mj', function () {
+  sock.on('mj', function() {
     var possible = true; // Teste si il y a déjà un MJ
     for (var i in SOCKET_LIST) {
       if (SOCKET_LIST[i].mj == true) {
@@ -56,8 +56,8 @@ io.on('connection', function (sock) {
     }
   });
   // Démarre la partie
-  sock.on('jouer', function () {
-    var affaire = affaires[Math.floor(Math.random()*affaires.length)];
+  sock.on('jouer', function() {
+    var affaire = affaires[Math.floor(Math.random() * affaires.length)];
     game.fillRoles(Math.min(io.engine.clientsCount, 6)); // Pour l'instant 5 joueurs max
     // Donne un rôle à chaque client
     var n = 0; //Donne les noms
@@ -82,7 +82,6 @@ io.on('connection', function (sock) {
         console.log(name + ' est ' + role);
       }
       j++;
-
     }
   });
 });

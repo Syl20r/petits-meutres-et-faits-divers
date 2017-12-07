@@ -1,7 +1,7 @@
 var sock = io();
 
 sock.on('pseudo', (nickname) => document.getElementById('pseudoClient').innerHTML = nickname);
-sock.on('listePseudo', function (liste) {
+sock.on('listePseudo', function(liste) {
   var ul = document.getElementById('pseudos');
   ul.innerHTML = ""; // reset la liste
   var lis = ul.getElementsByTagName("li");
@@ -24,7 +24,7 @@ sock.on('listePseudo', function (liste) {
     }
   }
 });
-sock.on('id', function () {
+sock.on('id', function() {
   sock.emit('id', [getCookie('id'), getCookie('nickname')]);
 });
 sock.on('mjDispo', (bool) => document.getElementById('boutonMj').disabled = !bool);
@@ -42,7 +42,7 @@ sock.on('mj', function(estMaitre) {
     btn.type = "button";
     btn.id = "jouer";
     btn.value = "Commencer la partie";
-    btn.onclick= jouer;
+    btn.onclick = jouer;
 
 
     div.appendChild(txt);
@@ -50,14 +50,24 @@ sock.on('mj', function(estMaitre) {
     document.body.appendChild(div);
   }
 });
+sock.on('role', function(role) {
+  document.getElementById('role').innerHTML = role;
+  var icone = document.getElementById(getCookie('id')).getElementsByTagName('i')[0];
 
-sock.on('role', (role) => document.getElementById('role').innerHTML = role);
+  if (role == "Inspecteur") {
+    icone.className = "fa fa-user-secret";
+  } else {
+    icone.className = "fa fa-user";
+  }
+});
 sock.on('name', function functionName(name) {
   document.getElementById('perso').style.display = "inline";
   document.getElementById('name').innerHTML = name;
 });
-sock.on('infoPerso', function (perso) {
+sock.on('infoPerso', function(perso) {
   var info_perso = document.getElementById('info_perso');
+  info_perso.innerHTML = '';
+
   for (var i in perso) { // https://prnt.sc/hf3jcl
     var li = document.createElement('li');
     var ul = document.createElement('ul');
@@ -73,18 +83,23 @@ sock.on('infoPerso', function (perso) {
     info_perso.appendChild(li);
   }
 });
-sock.on("date", function (date) {
+sock.on("date", function(date) {
   document.getElementById('date').innerHTML = date;
 });
-sock.on('mots', function (mots) {
+sock.on('mots', function(mots) {
+  var mots1 = document.getElementById('mots1');
+  var mots2 = document.getElementById('mots2');
+  mots1.innerHTML = '';
+  mots2.innerHTML = '';
+
   for (var i in mots) {
     var mot = document.createElement('li');
     mot.appendChild(document.createTextNode(mots[i]));
 
-    if (i <3) {
-      var ul = document.getElementById('mots1');
+    if (i < 3) {
+      var ul = mots1;
     } else {
-      var ul = document.getElementById('mots2');
+      var ul = mots2;
     }
     ul.appendChild(mot);
   }
@@ -95,30 +110,21 @@ function mj() {
 }
 
 function jouer() {
+  console.log('jouer');
   var btn = document.getElementById('jouer');
   sock.emit('jouer');
   btn.value = "Changer d'affaire";
-  document.getElementById('mots1').innerHTML = '';
-  document.getElementById('mots2').innerHTML = '';
-  document.getElementById('info_perso').innerHTML = '';
 }
 
-function getCookie(c_name)
-{
-if (document.cookie.length>0)
-  {
-  c_start=document.cookie.indexOf(c_name + "=");
-  if (c_start!=-1)
-    {
-    c_start=c_start + c_name.length+1;
-    c_end=document.cookie.indexOf(";",c_start);
-    if (c_end==-1) c_end=document.cookie.length;
-    return unescape(document.cookie.substring(c_start,c_end));
+function getCookie(c_name) {
+  if (document.cookie.length > 0) {
+    c_start = document.cookie.indexOf(c_name + "=");
+    if (c_start != -1) {
+      c_start = c_start + c_name.length + 1;
+      c_end = document.cookie.indexOf(";", c_start);
+      if (c_end == -1) c_end = document.cookie.length;
+      return unescape(document.cookie.substring(c_start, c_end));
     }
   }
-return "";
-<<<<<<< HEAD
+  return "";
 }
-=======
-}
->>>>>>> 12b4e7d461b034d51d1d4f64ec5f8932975d5fd1

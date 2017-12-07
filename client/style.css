@@ -1,89 +1,72 @@
-html
-{
-	font-family: Arial, sans-serif;
-	background-color:#030303;
-	color:white;
+html {
+  font-family: Arial, sans-serif;
+  background-color: #030303;
+  color: white;
 }
 
-header
-{
-	min-width: 750px;
-	border:1px solid grey;
-	background-color: #030303;
-	padding-left:20px;
-	overflow: auto;
+header {
+  min-width: 750px;
+  border: 1px solid grey;
+  background-color: #030303;
+  padding-left: 20px;
+  overflow: auto;
 }
 
-
-#aside
-{
-	float:left;
-	font-size: 110%;
-	border-style: solid;
-	width:210px;
-	border-width:1px; 
-	border-color: #444444;
-	margin:10px 5px 0 0;
-	padding: 0 10px 0px 5px;
-
+#aside {
+  float: left;
+  font-size: 110%;
+  border-style: solid;
+  width: 210px;
+  border-width: 1px;
+  border-color: #444444;
+  margin: 10px 5px 0 0;
+  padding: 0 10px 0px 5px;
 }
 
-ul
-{
-	list-style-type: none;
-	text-indent:-10px;
-	overflow: hidden;
-	word-break:break-all;
+ul {
+  list-style-type: none;
+  text-indent: -10px;
+  overflow: hidden;
+  word-break: break-all;
 }
 
-
-#container
-{
-	overflow:auto;
-
+#container {
+  overflow: auto;
 }
 
-#content
-{
-	background-color:#171814;
-	overflow:hidden;
-	padding-left:8px;
-	margin-top:10px;
-	text-align: justify;
+#content {
+  background-color: #171814;
+  overflow: hidden;
+  padding-left: 8px;
+  margin-top: 10px;
+  text-align: justify;
 }
 
-
-img#resize
-{
-	height:120px;
-	width: auto;
+img#resize {
+  height: 120px;
+  width: auto;
 }
 
-
-#h1aside
-{
-	text-align: center;
-
+#h1aside {
+  text-align: center;
 }
 
-#logo{
-	border:1px solid pink;
-	width: 200px;
-	overflow:hidden;
+#logo {
+  border: 1px solid pink;
+  width: 200px;
+  overflow: hidden;
 }
 
-
-#boxPseudo{
-	border:1px solid pink;
-	text-align: right;
-	padding-right: 5px;
-	min-width:200px;
-	max-width: 500px;
-	float:right;
-
+#boxPseudo {
+  border: 1px solid pink;
+  text-align: right;
+  padding-right: 5px;
+  min-width: 200px;
+  max-width: 500px;
+  float: right;
 }
 
-#pseudoClient{
-	font-size:120%;
-	font-weight: bold;
+#pseudoClient {
+  font-size: 120%;
+  font-weight: bold;
 }
