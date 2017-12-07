@@ -81,6 +81,8 @@ sock.on('role', function(data) {
 sock.on('affaire', function(aff) {
   // Date
   document.getElementById('date').innerHTML = aff.date;
+  // Affaire
+  document.getElementById('affaire').innerHTML = aff.histoire;
   // Icone inspecteur
   var ul = document.getElementById('pseudos');
   var lis = ul.getElementsByClassName('inspecteur');
