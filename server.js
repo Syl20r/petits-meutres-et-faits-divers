@@ -24,17 +24,7 @@ io.on('connection', function (sock) {
     sock.nickname = tab[1];
     SOCKET_LIST[sock.id] = sock;
 
-    // Ajoute le joueur dans la liste et sur sa page
-    var listeJoueurs = [];
-    for (var i in SOCKET_LIST) {
-      var s = SOCKET_LIST[i];
-      // liste joueurs
-      listeJoueurs.push([s.id, s.nickname]);
-      if (s.id == sock.id) {
-        s.emit('pseudo', s.nickname);
-      }
-    }
-    io.emit('listePseudo', listeJoueurs);
+    sendPseudos(sock.id);
   });
 
    // On informe les clients du nbr de clients connectés
@@ -47,6 +37,7 @@ io.on('connection', function (sock) {
     if (sock.mj == true) {
       io.emit('mjDispo', true);
     }
+    sendPseudos(sock.id);
   })
 
   // Demande à devenir MJ
@@ -95,6 +86,20 @@ io.on('connection', function (sock) {
     }
   });
 });
+
+// Actualise/Ajoute le joueur dans la liste et sur sa page
+function sendPseudos(id) {
+  var listeJoueurs = [];
+  for (var i in SOCKET_LIST) {
+    var s = SOCKET_LIST[i];
+    // liste joueurs
+    listeJoueurs.push([s.id, s.nickname]);
+    if (s.id == id) {
+      s.emit('pseudo', s.nickname);
+    }
+  }
+  io.emit('listePseudo', listeJoueurs);
+}
 
 // Le navigateur web ouvre directement le dossier 'client' => index.html
 app.use(express.static(__dirname + '/client'));

@@ -3,6 +3,7 @@ var sock = io();
 sock.on('pseudo', (nickname) => document.getElementById('pseudoClient').innerHTML = nickname);
 sock.on('listePseudo', function (liste) {
   var ul = document.getElementById('pseudos');
+  ul.innerHTML = ""; // reset la liste
   var lis = ul.getElementsByTagName("li");
   for (var i in liste) {
     // Anti-doublons
@@ -16,8 +17,9 @@ sock.on('listePseudo', function (liste) {
       var icone = document.createElement('i');
       var li = document.createElement('li');
       li.id = liste[i][0];
+      icone.className = "fa fa-user";
       li.appendChild(icone);
-      li.appendChild(document.createTextNode(liste[i][1]));
+      li.appendChild(document.createTextNode('  ' + liste[i][1]));
       ul.appendChild(li);
     }
   }
@@ -93,7 +95,12 @@ function mj() {
 }
 
 function jouer() {
+  var btn = document.getElementById('jouer');
   sock.emit('jouer');
+  btn.value = "Changer d'affaire";
+  document.getElementById('mots1').innerHTML = '';
+  document.getElementById('mots2').innerHTML = '';
+  document.getElementById('info_perso').innerHTML = '';
 }
 
 function getCookie(c_name)
