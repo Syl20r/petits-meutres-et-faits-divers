@@ -112,3 +112,9 @@ img#resize {
   font-style: italic;
   text-align: center;
 }
+
+#tableaumots {
+  border:1px solid white;
+  font-weight: bold;
+  text-align:center;
+}
