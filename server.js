@@ -14,7 +14,7 @@ let server = http.createServer(app);
 let io = socketio(server);
 
 var SOCKET_LIST = {}; // Liste des clients
-var MJ = false; // Maitre du Jeu
+var MJ_DISPO = true;
 
 // Quand un client se connecte
 io.on('connection', function(sock) {
@@ -23,9 +23,9 @@ io.on('connection', function(sock) {
     sock.id = tab[0]; // identité unique
     sock.nickname = tab[1];
     SOCKET_LIST[sock.id] = sock;
-
     sendPseudos(sock.id);
   });
+  sock.emit('mjDispo', {estDispo: MJ_DISPO, demande:false});
 
   // On informe les clients du nbr de clients connectés
   io.emit('nbrJoueurs', io.engine.clientsCount);
@@ -35,24 +35,20 @@ io.on('connection', function(sock) {
     delete SOCKET_LIST[sock.id];
     io.emit('nbrJoueurs', io.engine.clientsCount);
     if (sock.mj == true) {
-      io.emit('mjDispo', true);
+      io.emit('mjDispo', {estDispo: true, demande:false});
+      MJ_DISPO = true;
     }
     sendPseudos(sock.id);
   })
 
   // Demande à devenir MJ
-  sock.on('mj', function() {
-    var possible = true; // Teste si il y a déjà un MJ
-    for (var i in SOCKET_LIST) {
-      if (SOCKET_LIST[i].mj == true) {
-        possible = false;
-      }
-    }
-    if (possible == true) {
+  sock.on('mjDispo', function(demande) {
+    if (MJ_DISPO == true) {
       sock.mj = true;
+      MJ_DISPO = false;
       SOCKET_LIST[sock.id] = sock;
-      sock.emit('mj', true);
-      io.emit('mjDispo', false);
+      sock.emit('mjDispo', {estDispo: true, demande:true});
+      io.emit('mjDispo', {estDispo: false, demande:false});
     }
   });
   // Démarre la partie

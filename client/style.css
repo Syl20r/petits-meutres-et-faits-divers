@@ -14,7 +14,7 @@ header {
   overflow: auto;
 }
 
-body {
+body, button {
   font-family: "police", sans-serif;
 }
 
