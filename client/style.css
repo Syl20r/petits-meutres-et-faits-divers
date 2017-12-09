@@ -71,6 +71,7 @@ img#resize {
 
 #h1aside {
   text-align: center;
+  font-size: 150%;
 }
 
 #logo {
@@ -98,3 +99,28 @@ img#resize {
   font-size: 120%;
   font-weight: bold;
 }
+
+#jour {
+  font-size: 120%;
+  font-weight: bold;
+  text-decoration: underline;
+  text-align: center;
+}
+
+#presentation {
+  font-size: 105%;
+  font-style: italic;
+  text-align: center;
+}
+
+#tableaumots {
+  border-collapse: collapse;
+  border:2px solid white;
+  text-align:center;
+}
+
+td,th {
+  border:1px solid white;
+  width:200px;
+}
+
