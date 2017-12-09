@@ -20,3 +20,12 @@ function setCookie(cname,cvalue,exdays) {
     var expires = "expires=" + d.toGMTString();
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
+
+// Entrer => clique bouton
+$(document).ready(function(){
+    $('#pseudo').keypress(function(e){
+      if(e.keyCode==13) {
+        $('button[name="login"]').click();
+      }
+    });
+});
