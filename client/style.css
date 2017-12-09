@@ -117,15 +117,20 @@ img#resize {
   text-align: center;
 }
 
-#tableaumots {
+table {
   border-collapse: collapse;
   border:2px solid white;
   text-align:center;
 }
 
+#info_perso tr:nth-child(odd) {
+  border: none;
+  background-color: #373a37;
+}
+
 td,th {
   border:1px solid white;
-  width:200px;
+  margin: 10px 5px 10px 10px;
 }
 
 #bandeau {
