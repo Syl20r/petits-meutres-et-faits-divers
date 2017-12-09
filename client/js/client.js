@@ -98,9 +98,13 @@ sock.on('affaire', function(aff) {
     lis[i].className = 'suspect';
   }
   var lis = ul.getElementsByClassName('suspect');
+  console.log(lis.length);
   for (var i in lis) {
-    if (lis[i].id == aff.inspecteur) {
-      lis[i].className = 'inspecteur';
+    if (i < lis.length) {
+      console.log('lis[i] : ' + lis[i].id);
+      if (lis[i].id == aff.inspecteur) {
+        lis[i].className = 'inspecteur';
+      }
     }
   }
   // Desc des perso
@@ -121,6 +125,8 @@ sock.on('affaire', function(aff) {
     li.appendChild(ul);
     info_perso.appendChild(li);
   }
+  document.getElementById('welcome').style.display = "none";
+  document.getElementById('jeu').style.display = "inline";
 });
 
 function jouer() {
