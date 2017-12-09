@@ -17,19 +17,21 @@
       <p><span id='nbrJoueurs'></span> Joueur(s) connecté(s)</p>
     </div>
     <div id="logo"><img src="logo.jpg" id="resize"></div>
-    <div><img id="tache" src="spot.svg"></div>
+    <img id="tache" src="spot.svg">
   </header>
   <div id="container">
     <div id="aside" onload='hauteur()'>
-      <h1 id="h1aside">Joueurs</h1>
+      <h1 id="h1aside">Joueur(s)</h1>
       <ul id="pseudos">
       </ul>
     </div>
 
     <div id="content">
-      <div class='affaire'>
-        <p id='date'></p>
-        <p id='affaire'></p>
+      <div id="jour" class='affaire'>
+        <p>Affaire du <span id='date'></span></p>
+      </div>
+      <div id="presentation" class='affaire'>
+        <p>Les faits : <span id='affaire'></span></p>
       </div>
       <div class="role">
         <p>Rôle : </p>

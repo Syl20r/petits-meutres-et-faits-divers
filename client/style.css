@@ -98,3 +98,16 @@ img#resize {
   font-size: 120%;
   font-weight: bold;
 }
+
+#jour {
+  font-size: 120%;
+  font-weight: bold;
+  text-decoration: underline;
+  text-align: center;
+}
+
+#presentation {
+  font-size: 110%;
+  font-style: italic;
+  text-align: center;
+}
