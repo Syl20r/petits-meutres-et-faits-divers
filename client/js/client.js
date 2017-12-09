@@ -63,7 +63,6 @@ sock.on('role', function(data) {
     document.getElementById('tache').style.display = "none";
   }
 
-  console.log(data.name);
   if (data.role != 'Inspecteur') {
     document.getElementById('perso').style.display = "inline";
     document.getElementById('mots').style.display = "inline";
@@ -97,10 +96,8 @@ sock.on('affaire', function(aff) {
     lis[i].className = 'suspect';
   }
   var lis = ul.getElementsByClassName('suspect');
-  console.log(lis.length);
   for (var i in lis) {
     if (i < lis.length) {
-      console.log('lis[i] : ' + lis[i].id);
       if (lis[i].id == aff.inspecteur) {
         lis[i].className = 'inspecteur';
       }
@@ -129,10 +126,9 @@ sock.on('affaire', function(aff) {
 });
 
 function jouer() {
-  console.log('jouer');
   var btn = document.getElementById('jouer');
   sock.emit('jouer');
-  btn.value = "Changer d'affaire";
+  btn.innerHTML = "Changer d'affaire";
 }
 
 function getCookie(c_name) {
