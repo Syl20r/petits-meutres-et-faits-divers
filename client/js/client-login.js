@@ -6,8 +6,12 @@ function giveId() {
 
 function login() {
   var name = document.getElementById('pseudo').value;
-  setCookie('nickname', name, 30);
-  location.href = 'game.html';
+  if (name.length > 17) {
+    document.getElementById('error').style.display = "inline";
+  } else {
+    setCookie('nickname', name, 30);
+    location.href = 'game.html';
+  }
 }
 
 function setCookie(cname,cvalue,exdays) {

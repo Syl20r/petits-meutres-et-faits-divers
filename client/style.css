@@ -45,6 +45,11 @@ body, button {
   padding: 0 10px 0px 5px;
 }
 
+#error {
+  font-size: 70%;
+  color: red;
+}
+
 ul {
   list-style-type: none;
   text-indent: -10px;
@@ -123,4 +128,3 @@ td,th {
   border:1px solid white;
   width:200px;
 }
-
