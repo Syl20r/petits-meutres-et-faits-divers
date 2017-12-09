@@ -7,35 +7,34 @@
   <link rel="icon" href="icon.ico" />
   <link rel="stylesheet" type="text/css" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="js/load.js"></script>
 </head>
 
 <body onresize='hauteur()'>
   <header>
     <div id="boxPseudo">
-      <p id='pseudoClient'>JeanSebastienBach</p>
+      <p id='pseudoClient'></p>
       <p><span id='nbrJoueurs'></span> Joueur(s) connecté(s)</p>
     </div>
     <div id="logo"><img src="logo.jpg" id="resize"></div>
-    <img id="tache" src="spot.svg">
+    <img id="tache" style="display: none;" src="spot.svg">
   </header>
   <div id="container">
-    <div id="welcome" style="display: none;">
-      <p>Comment jouer ? Pour commencer une partie il faut que le Maître du jeu lance la partie !</p>
+    <div id="aside" onload='hauteur()'>
+      <h1 id="h1aside">Joueur(s)</h1>
+      <ul id="pseudos">
+      </ul>
     </div>
-    <div id="jeu" style="display: inline;">
-      <div id="aside" onload='hauteur()'>
-        <h1 id="h1aside">Joueur(s)</h1>
-        <ul id="pseudos">
-        </ul>
-      </div>
 
-      <div id="content">
+    <div id="content">
+      <div id='welcome' style="display: inline;">
+        <p>Comment jouer ? Pour commencer une partie il faut que le Maître du jeu lance la partie !</p>
+      </div>
+      <div id='jeu' style="display: none;">
         <div id="jour" class='affaire'>
           <p>Affaire du <span id='date'></span></p>
         </div>
         <div id="presentation" class='affaire'>
-          <p>Contexte : <span id='affaire'></span></p>
+          <p>Intitulé : <span id='affaire'></span></p>
         </div>
         <div class="role">
           <p>Rôle : <span id="role"></span></p>
@@ -49,15 +48,11 @@
           <table id="tableaumots">
             <tr>
               <td><b>PARTIE 1</b></td>
-              <td>
-                <ul id="mots1">
-              </td>
+              <td><ul id="mots1"></td>
             </tr>
             <tr>
               <td><b>PARTIE 2</b></td>
-              <td>
-                <ul id="mots2">
-              </td>
+              <td><ul id="mots2"></td>
             </tr>
           </table>
         </div>
@@ -67,15 +62,19 @@
           </ul>
         </div>
       </div>
+
+
     </div>
   </div>
-  <button onclick="mj()" type="button" id="boutonMj">Devenir Maître du jeu</button>
+  <button onclick="mj()" type="button" id="boutonMj" disabled>Devenir Maître du jeu</button>
   <div id="maitre"></div>
+
+
   <!-- Le fichier socket.io.js est généré par server.js -->
   <script type="text/javascript" src="/socket.io/socket.io.js"></script>
   <script type="text/javascript" src="js/client.js"></script>
-  <!-- <script type="text/javascript">hauteur();</script> -->
-  <div id="bandeau"><img src="bandeau.jpg"></div>
+  <script src="js/load.js"></script>
+
 </body>
 
 </html>

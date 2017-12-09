@@ -7,6 +7,7 @@
   <link rel="icon" href="icon.ico" />
   <link rel="stylesheet" type="text/css" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body onload='giveId()'>
@@ -15,6 +16,7 @@
     <p>Entrer votre pseudo :</p>
     <input type="text" name="nickname" id="pseudo">
     <button type="button" name="login" onclick='login()'>Jouer</button>
+    <p id="error" style='display: none;'><br>Hé ! Vas y molo ! (17 caractères maximum)</p>
   </div>
 
   <!-- Le fichier socket.io.js est généré par server.js -->
