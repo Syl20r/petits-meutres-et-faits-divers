@@ -71,6 +71,7 @@ img#resize {
 
 #h1aside {
   text-align: center;
+  font-size: 150%;
 }
 
 #logo {
@@ -107,7 +108,7 @@ img#resize {
 }
 
 #presentation {
-  font-size: 110%;
+  font-size: 105%;
   font-style: italic;
   text-align: center;
 }
