@@ -116,12 +116,11 @@ img#resize {
 #tableaumots {
   border-collapse: collapse;
   border:2px solid white;
-  font-weight: bold;
   text-align:center;
 }
 
 td,th {
   border:1px solid white;
-  width:100px;
+  width:200px;
 }
 
