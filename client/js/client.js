@@ -25,25 +25,23 @@ sock.on('listePseudo', function(liste) {
 sock.on('id', function() {
   sock.emit('id', [getCookie('id'), getCookie('nickname')]);
 });
+sock.on('mjDispo', (bool) => document.getElementById('boutonMj').disabled = !bool);
 sock.on('msg', (txt) => alert(txt));
 sock.on('nbrJoueurs', (nbr) => document.getElementById('nbrJoueurs').innerHTML = nbr);
-
-function mj() {
-  sock.emit('mjDispo', true);
-}
-
-sock.on('mjDispo', function(data) {
-  document.getElementById('boutonMj').disabled = !data.estDispo;
-  if (data.estDispo && data.demande) {
+sock.on('mj', function(estMaitre) {
+  if (estMaitre) {
     var txt = document.createElement('p');
     txt.id = "txtMj";
     txt.innerHTML = "Vous êtes <b>Maître du jeu</b>";
 
     var div = document.getElementById('maitre');
-    var btn = document.createElement('button');
+
+    var btn = document.createElement('input');
+    btn.type = "button";
     btn.id = "jouer";
-    btn.innerHTML = "Commencer la partie";
+    btn.value = "Commencer la partie";
     btn.onclick = jouer;
+
 
     div.appendChild(txt);
     div.appendChild(btn);
@@ -57,18 +55,13 @@ sock.on('role', function(data) {
   var eName = document.getElementById('name');
   // Rôle
   eRole.innerHTML = data.role;
-  if (data.role == "Coupable") {
-    document.getElementById('tache').style.display = "inline";
-  } else {
-    document.getElementById('tache').style.display = "none";
-  }
 
   console.log(data.name);
   if (data.role != 'Inspecteur') {
     document.getElementById('perso').style.display = "inline";
     document.getElementById('mots').style.display = "inline";
     eName.innerHTML = data.name;
-    // Mots
+    // Name
     var mots1 = document.getElementById('mots1');
     var mots2 = document.getElementById('mots2');
     mots1.innerHTML = '';
@@ -97,13 +90,9 @@ sock.on('affaire', function(aff) {
     lis[i].className = 'suspect';
   }
   var lis = ul.getElementsByClassName('suspect');
-  console.log(lis.length);
   for (var i in lis) {
-    if (i < lis.length) {
-      console.log('lis[i] : ' + lis[i].id);
-      if (lis[i].id == aff.inspecteur) {
-        lis[i].className = 'inspecteur';
-      }
+    if (lis[i].id == aff.inspecteur) {
+      lis[i].className = 'inspecteur';
     }
   }
   // Desc des perso
@@ -124,9 +113,11 @@ sock.on('affaire', function(aff) {
     li.appendChild(ul);
     info_perso.appendChild(li);
   }
-  document.getElementById('welcome').style.display = "none";
-  document.getElementById('jeu').style.display = "inline";
 });
+
+function mj() {
+  sock.emit('mj');
+}
 
 function jouer() {
   console.log('jouer');
