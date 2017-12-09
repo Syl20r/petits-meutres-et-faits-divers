@@ -122,5 +122,6 @@ img#resize {
 
 td,th {
   border:1px solid white;
+  width:100px;
 }
 
