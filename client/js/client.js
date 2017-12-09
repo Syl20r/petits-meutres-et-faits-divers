@@ -40,10 +40,9 @@ sock.on('mjDispo', function(data) {
     txt.innerHTML = "Vous êtes <b>Maître du jeu</b>";
 
     var div = document.getElementById('maitre');
-    var btn = document.createElement('input');
-    btn.type = "button";
+    var btn = document.createElement('button');
     btn.id = "jouer";
-    btn.value = "Commencer la partie";
+    btn.innerHTML = "Commencer la partie";
     btn.onclick = jouer;
 
     div.appendChild(txt);
