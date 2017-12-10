@@ -39,7 +39,7 @@ body, button {
 #aside {
   float: left;
   font-size: 110%;
-  width: 210px;
+  width: 17%;
   margin: 5px 5px 0 0;
   padding: 0 5px 5px 5px;
   border-radius: 0 0 20px 20px;
@@ -47,7 +47,7 @@ body, button {
   border: 1px solid #3a3a3d;
 }
 
-ul {
+#aside ul {
   list-style-type: none;
   text-indent: -10px;
   overflow: hidden;
@@ -61,8 +61,8 @@ ul {
 #content {
   background-color: #212221;
   overflow: hidden;
-  padding-left: 20px;
-  padding right:20px;
+  padding-left: 2%;
+  padding-right: 2%;
   margin-top: 5px;
   text-align: justify;
   border-radius: 0 0 20px 20px;
@@ -117,22 +117,19 @@ img#resize {
   text-align: center;
 }
 
+
+
 table {
   border-collapse: collapse;
-  border:2px solid white;
-  text-align:center;
+  background-color: #363936;
+}
+tr:nth-child(odd) {
+  background-color: #292b2c;
 }
 
-#info_perso tr:nth-child(odd) {
-  border: none;
-  background-color: #373a37;
-}
-
-td,th {
-  border:1px solid white;
-  margin: 10px 5px 10px 10px;
-  width:200px;
-}
+/*#tableaumots td{
+  padding: 10%;
+}*/
 
 #bandeau {
   overflow:hidden;
