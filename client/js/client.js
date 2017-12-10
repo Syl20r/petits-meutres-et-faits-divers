@@ -45,7 +45,7 @@ sock.on('mjDispo', function(data) {
     btn.innerHTML = "Commencer la partie";
     btn.onclick = jouer;
 
-    div.appendChild(txt);
+    document.getElementById('boxPseudo').appendChild(txt);
     div.appendChild(btn);
     document.body.appendChild(div);
   }

@@ -7,20 +7,22 @@
   <link rel="icon" href="icon.ico" />
   <link rel="stylesheet" type="text/css" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-<body onresize='hauteur()'>
+<!-- <body onresize='hauteur()'> -->
+<body>
   <header>
+  <img src="logo.jpg" id="logo">
     <div id="boxPseudo">
       <p id='pseudoClient'></p>
-      <p><span id='nbrJoueurs'></span> Joueur(s) connecté(s)</p>
+      <p  style="display: none;"><span id='nbrJoueurs'></span> Joueur(s) connecté(s)</p>
     </div>
-    <div id="logo"><img src="logo.jpg" id="resize"></div>
-    <img id="tache" style="display: none;" src="spot.svg">
   </header>
   <div id="container">
-    <div id="aside" onload='hauteur()'>
-      <h1 id="h1aside">Joueur(s)</h1>
+    <!-- <div id="aside" onload='hauteur()'> -->
+    <div class="aside">
+      <h1>Joueur(s)</h1>
       <ul id="pseudos">
       </ul>
     </div>
@@ -33,11 +35,15 @@
         <div id="jour" class='affaire'>
           <p>Affaire du <span id='date'></span></p>
         </div>
+
+
         <div id="presentation" class='affaire'>
           <p>Contexte : <span id='affaire'></span></p>
         </div>
         <div class="role">
-          <p>Rôle : <span id="role"></span></p>
+
+          <p>Rôle : <span id="role"></span><img id="tache" style="display: none;" src="spot.svg"></p>
+
         </div>
         <div id="perso" style="display: none;">
           <p>Vous êtes <span id="name"></span></p>
@@ -45,7 +51,7 @@
         <div id="mots" style="display: none;">
           <p></p>
           <p>Mots à placer dans votre alibi :</p>
-          <table id="tableaumots">
+          <table id="mots">
             <tr>
               <td><b>PARTIE 1</b></td>
               <td><ul id="mots1"></td>
@@ -74,6 +80,11 @@
   <script type="text/javascript" src="/socket.io/socket.io.js"></script>
   <script type="text/javascript" src="js/client.js"></script>
   <script src="js/load.js"></script>
+  <!-- TEST CSS -->
+  <!-- <script type="text/javascript">
+    mj();
+    jouer();
+  </script> -->
 
 </body>
 
