@@ -1,5 +1,26 @@
-? joueurs connectés => nbr joueurs
-(Sylv) questionnaire json
-(Yann) page cv
-(Sylv) limiter pseudo 17 caract
-? (Sylv) id cookie/role, etc de la partie => on peut reprendre la partie si on actualise
+--- TODO-LIST ---
+
+(SYLVAIN)
+- FIX bug "Rôle : undefined" sans doute dû au bouton "devenir maître du jeu" dans le footer
+- ? joueurs connectés => nbr joueurs
+- questionnaire json
+- id cookie/role, etc de la partie => on peut reprendre la partie si on actualise
+
+
+(YANNICK/JÉRÉMIE) 
+- adapter image footer (js ou image non-backgroud)
+- bouton accueil dans footer
+- mettre en forme infos persos
+- bouton "commencer la partie" dans footer
+
+
+(YANNICK) -> terminé avant lundi 18/12/17 (normalement)
+- Finir page CV + intégrer dans le site
+- css/html accueil
+
+
+
+LUNDI/MARDI/MERCREDI
+- Topo page d'accueil
+- Finitions
+- Préparation de l'oral du jeudi 21/12/2017
