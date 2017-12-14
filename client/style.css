@@ -53,10 +53,17 @@ header {
   border: 1px solid #3a3a3d;
   text-align: center;
   margin-bottom: 5%;
+  background-image: url("coin.jpg");
+  background-position: top left;
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
 
 .aside h1 {
   font-size: 110%;
+}
+
+#scr {
 }
 
 #content {
