@@ -16,7 +16,7 @@
   <img src="logo.jpg" id="logo">
     <div id="boxPseudo">
       <p id='pseudoClient'></p>
-      <p  style="display: none;"><span id='nbrJoueurs'></span> Joueur(s) connecté(s)</p>
+      <p style="display: none;"><span id='nbrJoueurs'></span> Joueur(s) connecté(s)</p>
     </div>
   </header>
   <div id="container">
@@ -71,10 +71,12 @@
 
     </div>
   </div>
-  <button onclick="mj()" type="button" id="boutonMj" disabled>Devenir Maître du jeu</button>
-  <div id="maitre"></div>
-
-
+  <footer>
+    <div>
+      <button onclick="mj()" type="button" id="boutonMj" disabled>Devenir Maître du jeu</button>
+      <div id="maitre"></div>
+    <div>
+  </footer>
   <!-- Le fichier socket.io.js est généré par server.js -->
   <script type="text/javascript" src="/socket.io/socket.io.js"></script>
   <script type="text/javascript" src="js/client.js"></script>
@@ -84,7 +86,6 @@
     mj();
     jouer();
   </script> -->
-
 </body>
 
 </html>

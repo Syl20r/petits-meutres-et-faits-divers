@@ -121,6 +121,20 @@ td li {
   list-style-type: none;
 }
 
+footer {
+  margin-top: 0.8%;
+  height: 130px;
+  border: 1px solid #3a3a3d;
+  border-radius: 20px 20px 20px 20px;
+  box-shadow: 0px 0px 10px #3a3a3d;
+  overflow: auto;
+  margin-bottom: 2%;
+  background-image: url("bandeau.jpg");
+  background-position: top left;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
 /* POUR LE PC */
 @media only screen and (min-width: 768px) {
   .aside {
@@ -142,7 +156,6 @@ td li {
     border-radius: 20px 20px 0 0;
     box-shadow: 0px 0px 10px #3a3a3d;
     margin-bottom: 0.3%;
-    overflow: auto;
   }
 
   #logo {
@@ -184,7 +197,7 @@ td li {
     margin-right: -0.5%;
     margin-left:-0.5%;
     padding-left: 0.5%;
-    padding-right: 0.5%;    
+    padding-right: 0.6%;    
   }
 
   #jour {
@@ -208,6 +221,8 @@ td li {
   /*#tableaumots td{
     padding: 10%;
   }*/
+
+
 
   #bandeau {
     overflow:hidden;
