@@ -135,6 +135,23 @@ footer {
   background-repeat: no-repeat;
 }
 
+
+#info_perso table {
+  margin-bottom: 4%;
+  border-collapse: collapse;
+  background-color: #363936;
+}
+#info_perso th, td {
+  text-align: center;
+  color: white;
+  border: 1px solid white;
+  padding: 1%;
+}
+
+#info_perso tr:nth-child(odd) {
+  background-color: #292b2c;
+}
+
 /* POUR LE PC */
 @media only screen and (min-width: 768px) {
   .aside {
@@ -160,8 +177,6 @@ footer {
 
   #logo {
     width: 13%;
-    padding-top: 0;
-    padding-left: 1%;
   }
 
   #content {
@@ -213,19 +228,14 @@ footer {
     text-align: center;
   }
 
-
-  #info_perso tr:nth-child(odd) {
-    background-color: #292b2c;
-  }
-
-  /*#tableaumots td{
-    padding: 10%;
-  }*/
-
-
-
   #bandeau {
     overflow:hidden;
+  }
+
+  #info_perso table {
+    margin-bottom: 2%;
+    border-collapse: collapse;
+    background-color: #363936;
   }
 
 }

@@ -108,18 +108,20 @@ sock.on('affaire', function(aff) {
   info_perso.innerHTML = '';
 
   for (var i in aff.perso) { // https://prnt.sc/hf3jcl
-    var li = document.createElement('li');
-    var ul = document.createElement('ul');
-    var name = document.createElement('li');
-    var desc = document.createElement('li');
+    var table = document.createElement('table');
+    var tr = document.createElement('tr');
+    var tr2 = document.createElement('tr');
+    var name = document.createElement('th');
+    var desc = document.createElement('td');
 
     name.appendChild(document.createTextNode(aff.perso[i].name));
     desc.appendChild(document.createTextNode(aff.perso[i].desc));
 
-    ul.appendChild(name);
-    ul.appendChild(desc);
-    li.appendChild(ul);
-    info_perso.appendChild(li);
+    tr.appendChild(name);
+    tr2.appendChild(desc);
+    table.appendChild(tr);
+    table.appendChild(tr2);
+    info_perso.appendChild(table);
   }
   document.getElementById('welcome').style.display = "none";
   document.getElementById('jeu').style.display = "inline";
