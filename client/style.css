@@ -40,8 +40,8 @@ header {
 
 #logo {
   width: 30%;
-  padding-top: 3%;
-  padding-left: 3%;
+  padding: 10px;
+  border-radius: 20px;
 }
 
 .aside {
