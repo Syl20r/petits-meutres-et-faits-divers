@@ -1,40 +1,24 @@
 var sock = io();
 
-sock.on('pseudo', (nickname) => document.getElementById('pseudoClient').innerHTML = nickname);
-sock.on('listePseudo', function(liste) {
-  var ul = document.getElementById('pseudos');
-  ul.innerHTML = ""; // reset la liste
-  var lis = ul.getElementsByTagName("li");
-  for (var i in liste) {
-    // Anti-doublons
-    var ok = true;
-    for (var j in lis) {
-      if (lis[j].id == liste[i][0]) {
-        ok = false;
-      }
-    }
-    if (ok) {
-      var li = document.createElement('li');
-      li.id = liste[i][0];
-      li.className = "suspect";
-      li.appendChild(document.createTextNode(liste[i][1]));
-      ul.appendChild(li);
-    }
-  }
-});
+// Le serveur demande id & nickname
 sock.on('id', function() {
-  sock.emit('id', [getCookie('id'), getCookie('nickname')]);
+  // Envoie id & nickname stockés dans les cookies
+  sock.emit('id', {'id': getCookie('id'), 'nickname': getCookie('nickname')});
 });
-sock.on('msg', (txt) => alert(txt));
-sock.on('nbrJoueurs', (nbr) => document.getElementById('nbrJoueurs').innerHTML = nbr);
 
+// Bouton "Devenir MJ"
 function mj() {
+  // Demande à devenir MJ => true
   sock.emit('mjDispo', true);
 }
 
+// Reçoit les infos sur le MJ
 sock.on('mjDispo', function(data) {
+  // Déactive le bouton "Devenir MJ" si le poste n'est plus dispo
   document.getElementById('boutonMj').disabled = !data.estDispo;
+  // Si le poste MJ était demandé
   if (data.estDispo && data.demande) {
+    // Ajoute tout le HTML
     var txt = document.createElement('p');
     txt.id = "txtMj";
     txt.innerHTML = "Vous êtes <b>Maître du jeu</b>";
@@ -50,19 +34,33 @@ sock.on('mjDispo', function(data) {
     document.body.appendChild(div);
   }
 });
+
+// Reçoit le nbr de personnes connnectés sur le site
+sock.on('nbrJoueurs', (nbr) => document.getElementById('nbrJoueurs').innerHTML = nbr);
+
+// Bouton "Commencer une partie/Changer d'affaire"
+function jouer() {
+  var btn = document.getElementById('jouer');
+  sock.emit('jouer');
+  btn.innerHTML = "Changer d'affaire";
+}
+
+// Reçoit l'info sur le rôle du client
 sock.on('role', function(data) {
+  // Modif HTML
   document.getElementById('perso').style.display = "none";
   document.getElementById('mots').style.display = "none";
   var eRole = document.getElementById('role');
   var eName = document.getElementById('name');
   // Rôle
   eRole.innerHTML = data.role;
+  // Affichage de la tache
   if (data.role == "Coupable") {
     document.getElementById('tache').style.display = "inline";
   } else {
     document.getElementById('tache').style.display = "none";
   }
-
+  // Pas de personnage ni de mot pour l'inspecteur
   if (data.role != 'Inspecteur') {
     document.getElementById('perso').style.display = "inline";
     document.getElementById('mots').style.display = "inline";
@@ -82,14 +80,16 @@ sock.on('role', function(data) {
       ul.appendChild(mot);
     }
   }
-
 });
+
+// Reçoit les infos sur l'affaire en cours
 sock.on('affaire', function(aff) {
   // Date
   document.getElementById('date').innerHTML = aff.date;
-  // Affaire
+  // Contexte
   document.getElementById('affaire').innerHTML = aff.histoire;
-  // Icone inspecteur
+  /* Donne l'icone inspecteur à l'inspecteur
+  / et les icones suspects aux suspects */
   var ul = document.getElementById('pseudos');
   var lis = ul.getElementsByClassName('inspecteur');
   for (var i in lis) {
@@ -125,11 +125,36 @@ sock.on('affaire', function(aff) {
   document.getElementById('jeu').style.display = "inline";
 });
 
-function jouer() {
-  var btn = document.getElementById('jouer');
-  sock.emit('jouer');
-  btn.innerHTML = "Changer d'affaire";
-}
+// Reçoit son propre pseudo pour l'afficher
+sock.on('pseudo', (nickname) => document.getElementById('pseudoClient').innerHTML = nickname);
+
+// Reçoit la liste des pseudos pour l'afficher
+sock.on('listePseudo', function(liste) {
+  var ul = document.getElementById('pseudos');
+  ul.innerHTML = ""; // reset la liste
+  var lis = ul.getElementsByTagName("li");
+  for (var i in liste) {
+    // Anti-doublons
+    var ok = true;
+    for (var j in lis) {
+      if (lis[j].id == liste[i].id) {
+        ok = false;
+      }
+    }
+    if (ok) {
+      var li = document.createElement('li');
+      li.id = liste[i].id;
+      li.className = "suspect";
+      li.appendChild(document.createTextNode(liste[i].nickname));
+      ul.appendChild(li);
+    }
+  }
+});
+
+// // Pour les tests :)
+// sock.on('msg', (txt) => alert(txt));
+
+
 
 function getCookie(c_name) {
   if (document.cookie.length > 0) {
