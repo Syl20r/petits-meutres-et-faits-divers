@@ -33,7 +33,7 @@ header {
   background-color: #030303;
   border: 1px solid #3a3a3d;
   border-radius: 20px 20px 0 0;
-  box-shadow: 0px 0px 10px #3a3a3d;
+  box-shadow: 0px 0px 10px #3a3a3d inset;
   overflow: auto;
   margin-bottom: 2%;
 }
@@ -49,7 +49,7 @@ header {
   font-size: 100%;
   width: 99%;
   border-radius: 0 0 10px 10px;
-  /*box-shadow: 0px 0px 5px #3a3a3d;*/
+  box-shadow: 0px 0px 5px #3a3a3d inset;
   border: 1px solid #3a3a3d;
   text-align: center;
   margin-bottom: 5%;
@@ -126,7 +126,7 @@ footer {
   height: 130px;
   border: 1px solid #3a3a3d;
   border-radius: 20px 20px 20px 20px;
-  box-shadow: 0px 0px 10px #3a3a3d;
+  box-shadow: 0px 0px 10px #3a3a3d inset;
   overflow: auto;
   margin-bottom: 2%;
   background-image: url("bandeau.jpg");
@@ -144,7 +144,7 @@ footer {
     margin: 5px 5px 0 0;
     padding: 0 5px 5px 5px;
     border-radius: 0 0 20px 20px;
-    box-shadow: 0px 0px 5px #3a3a3d;
+    box-shadow: 0px 0px 5px #3a3a3d inset;
     border: 1px solid #3a3a3d;
   }
   header {
@@ -154,7 +154,7 @@ footer {
     /*padding-left: 20px;*/
     border: 1px solid #3a3a3d;
     border-radius: 20px 20px 0 0;
-    box-shadow: 0px 0px 10px #3a3a3d;
+    box-shadow: 0px 0px 10px #3a3a3d inset;
     margin-bottom: 0.3%;
   }
 
@@ -172,7 +172,7 @@ footer {
     margin-top: 5px;
     text-align: justify;
     border-radius: 0 0 20px 20px;
-    box-shadow: 0px 0px 10px #750808;
+    box-shadow: 0px 0px 10px #750808 inset;
     border: 1px solid #750808;
   }
 
@@ -197,7 +197,7 @@ footer {
     margin-right: -0.5%;
     margin-left:-0.5%;
     padding-left: 0.5%;
-    padding-right: 0.6%;    
+    padding-right: 0.6%;
   }
 
   #jour {
