@@ -1,10 +1,8 @@
 --- TODO-LIST ---
 
 (SYLVAIN)
-- FIX bug "Rôle : undefined" sans doute dû au bouton "devenir maître du jeu" dans le footer
-- ? joueurs connectés => nbr joueurs
 - questionnaire json
-- id cookie/role, etc de la partie => on peut reprendre la partie si on actualise
+- id cookie/role, etc de la partie => on peut reprendre la partie si on actualise (un peu galère a faire)
 
 
 (YANNICK/JÉRÉMIE) 
