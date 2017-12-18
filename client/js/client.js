@@ -61,7 +61,7 @@ sock.on('role', function(data) {
     document.getElementById('tache').style.display = "none";
   }
   // Pas de personnage ni de mot pour l'inspecteur
-  if (data.role != 'Inspecteur' || data.role != "Spectateur") {
+  if (data.role != 'Inspecteur' && data.role != "Spectateur") {
     document.getElementById('perso').style.display = "inline";
     document.getElementById('mots').style.display = "inline";
     eName.innerHTML = data.name;
