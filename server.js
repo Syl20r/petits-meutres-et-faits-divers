@@ -98,6 +98,8 @@ io.on('connection', function(sock) {
         }
         // Envoie les infos propres à chaque client (indépendamment)
         s.emit("role", data);
+      } else {
+        data.role = "Spectateur";
       }
       j++;
     }
