@@ -96,11 +96,11 @@ io.on('connection', function(sock) {
             data.mots = affaire.innocent;
           }
         }
-        // Envoie les infos propres à chaque client (indépendamment)
-        s.emit("role", data);
       } else {
         data.role = "Spectateur";
       }
+      // Envoie les infos propres à chaque client (indépendamment)
+      s.emit("role", data);
       j++;
     }
     // Envoie les infos sur l'affaire à tous les clients
