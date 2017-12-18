@@ -69,16 +69,17 @@ io.on('connection', function(sock) {
 
   // Démarre la partie (bouton "Commencer une partie/Changer d'affaire")
   sock.on('jouer', function() {
+    var joueurMax = 3;
     // Choisit une affaire au hasard
     var rAff = Math.floor(Math.random() * (affaires.length));
     var affaire = affaires[rAff];
     // 6 joueurs max, les autres en trop sont refoulés
-    game.fillRoles(Math.min(io.engine.clientsCount, 6));
+    game.fillRoles(Math.min(io.engine.clientsCount, joueurMax));
     // Donne un rôle à chaque client
     var n = 0; // Donne les noms
     var j = 0; // 6 joueurs max
     for (var i in SOCKET_LIST) {
-      if (j < 6) {
+      if (j < joueurMax) {
         var s = SOCKET_LIST[i];
         var data = {};
         data.role = game.donneRole();
