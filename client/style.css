@@ -10,6 +10,26 @@ body, button {
   font-family: "police", sans-serif;
 }
 
+button {
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+    padding: 0.5% 1%;
+    text-align: center;
+    display: inline-block;
+    /* font-size: 16px; */
+    margin: 0 1%;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #3a3a3d;;
+    color: white;
+}
+
 @font-face {
   font-family: "police";
   src: url('police.otf');
