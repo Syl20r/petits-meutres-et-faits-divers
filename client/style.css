@@ -26,6 +26,23 @@ body, button {
 	font-size: 90%;
 }
 
+#login {
+  margin: 2%;
+}
+
+#titre_accueil {
+  border: 1px solid #3a3a3d;
+  box-shadow: 0px 0px 5px #3a3a3d inset;
+  font-size: 150%;
+  text-align: center;
+}
+
+#texte_accueil {
+  margin: 2%;
+  text-align: left;
+  font-size: 65%;
+  text-justify: auto;
+}
 
 /* POUR LE TELEPHONE */
 header {

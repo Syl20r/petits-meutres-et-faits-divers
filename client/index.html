@@ -10,7 +10,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
-<body onload='giveId()'>
+<header onload='giveId()'>
   <div id="logo"><img src="logo.jpg" id="resize"></div>
   <div id="login">
     <p>Entrer votre pseudo :</p>
@@ -18,7 +18,36 @@
     <button type="button" name="login" onclick='login()'>Jouer</button>
     <p id="error" style='display: none;'><br>Hé ! Vas y molo ! (17 caractères maximum)</p>
   </div>
+</header>
 
+<body>
+  <br/>
+  <div id="titre_accueil">
+	<p>A PROPOS DU JEU</p>
+	<div id="texte_accueil">
+	<p><b><u>But du jeu :</u></b> L'inspecteur va au travers d'interrogatoires tenter de démasquer le coupable dans une affaire bien mystérieuse.<p><br/>
+	<p><b><u>Distribution des rôles :</u></b> 1 inspecteur, 1 coupable et maximum 4 innocents (6 joueurs maximum)</p><br/>
+	<p><b><u>Comment ça marche ?</u></b><p>
+	<p>Chaque joueur reçoit un livret-agenda. À chaque jour, une nouvelle affaire :<p>
+	<p>1) L'agenda de l'inspecteur indique en résumé l'affaire, cite les suspects en aiguillant l'inspecteur sur des pistes potentielles.</p>
+	<p>2) L'agenda de l'innocent présente l'affaire, indique le rôle à jouer et donne deux séries de trois mots. Ces mots doivent être prononcés lors de l'interrogatoire. Tous les innocents ont les mêmes mots.<p>
+	<p>3) L'agenda du coupable donne aussi deux séries de trois mots, mais ces mots sont différents de ceux des innocents. Ils doivent également être prononcés lors de l'interrogatoire.</p><br/>
+	<p><b><u>Déroulement de la partie :</u></b></p>
+	<p>La manche est une suite d'interrogatoires. L'inspecteur va interroger successivement les suspects dans l'ordre qu'il souhaite. Il va tenter de repérer les mots des innocents afin de démasquer le coupable. Le coupable peut (il a intérêt !) aussi repérer ces mots et les glisser en plus des siens pendant son interrogatoire. Un sablier minute l'interrogatoire.</p>
+	<p>Lorsqu'il a interrogé tous les suspects, l'inspecteur peut demander un complément d'enquête. On utilise alors la seconde série de trois mots.</p>
+	<p>S'ensuit une phase de vote, les suspects estimant si l'inspecteur va démasquer le coupable. En cas de succès de l'inspecteur, celui-ci marque des points. Dans le cas contraire, les points sont marqués par le coupable et l'accusé à tort.Les autres joueurs marquent aussi des points selon leur estimation.</p>
+	<p>On change ensuite les rôles ; un nouvel inspecteur peut mener une nouvelle enquête...</p>
+	</div>
+  </div>
+  </br>
+  <div id="titre_accueil">
+  	<p>LIENS UTILES</p>
+  	<div id="texte_accueil">
+     <p><a href="https://fr.wikipedia.org/wiki/Petits_meurtres_et_faits_divers" style="color:white">Page Wikipédia</a></p>
+     <p><a href="http://www.petits-meurtres.com/" style="color:white">Site officiel du jeu</a></p>
+     <p><a href="https://www.youtube.com/watch?v=5PDSgwql7LU" style="color:white">Exemple d'une vraie partie (vidéo de EclypsiaFamily)</a></p>
+    </div>
+  </div>
   <!-- Le fichier socket.io.js est généré par server.js -->
   <script type="text/javascript" src="/socket.io/socket.io.js"></script>
   <script type="text/javascript" src="js/client-login.js"></script>
