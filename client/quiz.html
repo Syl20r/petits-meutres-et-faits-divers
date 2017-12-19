@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Petits Meurtres et Faits Divers - Quiz</title>
+  <link rel="icon" href="icon.ico" />
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <header onload='giveId()'>
+    <img src="logo.jpg" id="logo">
+  </header>
+
+  <br/>
+  <div class="titre_accueil">
+    <p>QUIZ</p>
+    <div class="texte_accueil">
+      <ul class="questions">
+
+      </ul>
+      <button id="valider" name="button" onclick="valider()">Valider</button>
+    </div>
+  </div>
+  <!-- Le fichier socket.io.js est généré par server.js -->
+  <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+  <script type="text/javascript" src="js/client-login.js"></script>
+  <script type="text/javascript" src="js/quiz.js"></script>
+</body>
+
+</html>

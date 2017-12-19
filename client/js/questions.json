@@ -1,0 +1,23 @@
+[
+  {
+    "question": "Qui sommes nous ?",
+    "a": "Une bouteille d'eau",
+    "b": "Dewey, Francis et Malcolm",
+    "c": "Jeremie, Yannick et Sylvain",
+    "reponse": "c"
+  },
+  {
+    "question": "Quelle est la couleur dominante sur ce site noir ?",
+    "a": "Le rouge",
+    "b": "Le noir",
+    "c": "Quadricolore",
+    "reponse": "b"
+  },
+  {
+    "question": "Le jeu s'appelle :",
+    "a": "Homer Simpson",
+    "b": "Petits Meurtres & faits divers",
+    "c": "Petits Meurtres faits divers &",
+    "reponse": "b"
+  }
+]
