@@ -25,7 +25,10 @@ module.exports = {
    */
   donneRole: function() {
     var r = Math.floor((Math.random() * rolesLibres.length));
-    role = rolesLibres.splice(r, 1)[0];
+    var role = rolesLibres.splice(r, 1)[0];
+    if (!role) {
+      role = "Spectateur";
+    }
     return role;
   }
 };

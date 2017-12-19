@@ -1,5 +1,10 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
 
+@font-face {
+  font-family: "police";
+  src: url('police.otf');
+}
+
 html {
   font-family: Arial, sans-serif;
   background-color: #060606;
@@ -25,14 +30,10 @@ button {
 }
 
 button:hover {
-    background-color: #3a3a3d;;
+    background-color: #3a3a3d;
     color: white;
 }
 
-@font-face {
-  font-family: "police";
-  src: url('police.otf');
-}
 
 .suspect:before {
 	content: '\f007  ';
@@ -62,6 +63,7 @@ button:hover {
     text-align: left;
     font-size: 65%;
     text-justify: auto;
+    font-family: "police", sans-serif;
 }
 
 /* POUR LE TELEPHONE */

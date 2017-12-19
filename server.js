@@ -62,8 +62,8 @@ io.on('connection', function(sock) {
       sock.mj = true;
       MJ_DISPO = false;
       SOCKET_LIST[sock.id] = sock;
-      sock.emit('mjDispo', {estDispo: true, demande:true});
-      io.emit('mjDispo', {estDispo: false, demande:false});
+      sock.emit('mjDispo', {estDispo: true, demande: true});
+      io.emit('mjDispo', {estDispo: false, demande: false});
     }
   });
 
@@ -77,16 +77,14 @@ io.on('connection', function(sock) {
     game.fillRoles(Math.min(io.engine.clientsCount, joueurMax));
     // Donne un rôle à chaque client
     var n = 0; // Donne les noms
-    var j = 0; // 6 joueurs max
     for (var i in SOCKET_LIST) {
-      if (j < joueurMax) {
+      var data = {};
         var s = SOCKET_LIST[i];
-        var data = {};
         data.role = game.donneRole();
         // Inspecteur
         if (data.role == "Inspecteur") {
           affaire.inspecteur = s.id;
-        } else { // L'inspecteur n'a pas de personnage
+        } else if (data.role != "Spectateur") { // L'inspecteur n'a pas de personnage
           // Nom du personnage
           data.name = affaire.perso[n].name;
           n++;
@@ -97,12 +95,8 @@ io.on('connection', function(sock) {
             data.mots = affaire.innocent;
           }
         }
-      } else {
-        data.role = "Spectateur";
-      }
       // Envoie les infos propres à chaque client (indépendamment)
       s.emit("role", data);
-      j++;
     }
     // Envoie les infos sur l'affaire à tous les clients
     io.emit("affaire", affaire);
