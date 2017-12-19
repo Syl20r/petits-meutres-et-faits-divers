@@ -214,6 +214,20 @@ footer {
     margin-bottom: 0.3%;
   }
 
+  button {
+      background-color: black;
+      color: white;
+      border: 1px solid white;
+      padding: 1%;
+      text-align: center;
+      display: inline-block;
+      margin: 1%;
+      -webkit-transition-duration: 0.4s; /* Safari */
+      transition-duration: 0.4s;
+      cursor: pointer;
+      border-radius: 5px;
+  }
+
   #logo {
     width: 13%;
   }
