@@ -15,6 +15,7 @@ let io = socketio(server);
 
 var SOCKET_LIST = {}; // Liste des clients [id]
 var MJ_DISPO = true; // Si le poste de MJ est dispo => true
+var JOUEUR_MAX = 6; // Nombre de joueurs max
 
 // Le navigateur web ouvre directement le dossier 'client' => index.html
 app.use(express.static(__dirname + '/client'));
@@ -69,12 +70,11 @@ io.on('connection', function(sock) {
 
   // Démarre la partie (bouton "Commencer une partie/Changer d'affaire")
   sock.on('jouer', function() {
-    var joueurMax = 3;
     // Choisit une affaire au hasard
     var rAff = Math.floor(Math.random() * (affaires.length));
     var affaire = affaires[rAff];
     // 6 joueurs max, les autres en trop sont refoulés
-    game.fillRoles(Math.min(io.engine.clientsCount, joueurMax));
+    game.fillRoles(Math.min(io.engine.clientsCount, JOUEUR_MAX));
     // Donne un rôle à chaque client
     var n = 0; // Donne les noms
     for (var i in SOCKET_LIST) {

@@ -1,22 +1,3 @@
-@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
-
-html {
-  font-family: Arial, sans-serif;
-  background-color: #060606;
-  color: white;
-}
-
-body, button {
-  font-family: "police", sans-serif;
-}
-
-@font-face {
-  font-family: "police";
-  src: url('police.otf');
-}
-
-
-
 /* POUR LE TELEPHONE */
 header {
   width: 99%;
@@ -33,55 +14,6 @@ header {
   padding: 10px;
   border-radius: 20px;
 }
-
-#boxTitre {
-    text-align: right;
-    padding-right: 15px;
-    width: 120px;
-    float: right;
-    font-size: 120%;
-    font-weight: bold
-  }
-
-#container{
-  overflow:auto;
-}
-
-
-.cv {
-  float: left;
-  min-width: 200px;
-  max-width: 350px;
-  margin-top: 0.8%;
-  border: 1px solid #3a3a3d;
-  border-radius: 20px 20px 20px 20px;
-  box-shadow: 0px 0px 10px #3a3a3d inset;
-  margin-bottom: 2%;
-  margin-left: 4%;
-  padding-left: 7px;
-  background-color: black;
-}
-
-h1{
-  text-align: center;
-}
-
-h3{
-  color:#005796;
-}
-
-img.circle{
-  display:block;
-  box-shadow: 0px 0px 10px #343434; 
-    border-radius:50px;
-    width:100px;
-    margin: 0 auto 0 auto;
-    height:100px;
-}
-
-
-
-
 
 /* POUR LE PC */
 @media only screen and (min-width: 768px) {
