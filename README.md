@@ -1,4 +1,3 @@
-Live website : https://ccdeux.herokuapp.com/
+Version en ligne du jeu de société Petits meutres et faits divers.
 
-# The Project
-Made with HTML5, CSS3, Javascript (jQuery), NodeJS (socket.io, express)
+Fait avec HTML5, CSS3, Javascript (jQuery), NodeJS (socket.io, express)
