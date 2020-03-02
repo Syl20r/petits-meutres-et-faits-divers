@@ -13,5 +13,5 @@ Version live : https://ccdeux.herokuapp.com/
   - express
 
 
-### Une partie en cours ...
+### Une partie en cours :
 <img src="https://raw.githubusercontent.com/sylvain-reynaud/petits-meutres-et-faits-divers/master/preview.jpg" />
