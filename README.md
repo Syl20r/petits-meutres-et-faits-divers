@@ -6,8 +6,12 @@ Contient de nombreux bugs ...
 Version live : https://ccdeux.herokuapp.com/ 
 
 ### Technologies et langages utilisés
-- HTML5/CSS3
+- HTML5/CSS3 responsive sans framework
 - jQuery
 - NodeJS
   - socket.io
   - express
+
+
+### Une partie en cours ...
+<img src="https://raw.githubusercontent.com/sylvain-reynaud/petits-meutres-et-faits-divers/master/preview.jpg" />
